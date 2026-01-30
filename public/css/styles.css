@@ -9,19 +9,11 @@
 :root {
   --border: #13b7d7;
 }
-a, button{
-  cursor: pointer;
-}
 
 header {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-}
-header a{
-    color: black;
-  font-size: larger;
-  margin: 15px;
 }
 
 header div {
@@ -46,10 +38,10 @@ header nav ul li {
   text-decoration: none;
 }
 
-header nav ul li {
+header nav ul li a {
   color: white;
-  list-style: none;
 }
+
 main {
   margin: 10px;
 }
@@ -117,6 +109,178 @@ footer {
   margin: 20px;
 }
 
+/* Inventory page */
+
+ul#inv-display {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+ul#inv-display li {
+  margin: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px black;
+  width: 40%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+ul#inv-display li>a {
+  width: 100%;
+  height: 70%;
+  border-bottom: solid 4px black;
+}
+
+ul#inv-display li a img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+ul#inv-display li div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+
+/* Vehicle dates page */
+section.vehicle-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+section.vehicle-details img {
+  width: 80%;
+}
+
+section.vehicle-details ul li {
+  padding: 10px;
+  list-style: none;
+}
+
+section.vehicle-details ul li:nth-child(odd) {
+  background-color: #dfdfdf;
+}
+
+section.vehicle-details ul li:nth-child(even) {
+  background-color: white;
+}
+
+/* Error page */
+main.error-main {
+  background-image: linear-gradient(rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.4)), url("/images/site/error-page.jpg");
+  height: 80%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+/* Login Page */
+body.form-login main {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+body.form-login main h1 {
+  align-self: flex-start;
+}
+
+body.form-login main div {
+  background-color: rgb(50, 71, 92);
+  color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+}
+
+body.form-login main div form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+body.form-login main div form input {
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+/* Registration page  */
+input:required:invalid,
+input:focus:invalid {
+  background-image: url(/images/invalid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+input:required:valid {
+  background-image: url(/images/valid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+/* Add-Classiication page */
+.inv-wrap {
+  max-width: 700px;
+  margin: 1.5rem auto;
+}
+
+.page-error {
+  color: #c00;
+  margin: .5rem 0 1rem;
+  font-weight: 600;
+}
+
+.panel {
+  background: #19a7c1;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  color: black;
+}
+
+.hint {
+  margin: 0 0 .25rem;
+}
+
+.subhint {
+  margin: .25rem 0 .5rem;
+  font-size: .9rem;
+  opacity: .9;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: .5rem;
+  margin: .25rem 0 .5rem;
+}
+
+.field-error {
+  background: #fff;
+  color: #c00;
+  padding: .35rem .5rem;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: .5rem .9rem;
+  border: 0;
+  border-radius: 6px;
+  background: #fff;
+}
+
 @media screen and (min-width: 710px) {
   body {
     background-image: url("/images/site/checkerboard.jpg");
@@ -174,5 +338,22 @@ footer {
 
   ul#inv-display {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Vehicle details */
+  section.vehicle-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 66%;
+    font-size: 30px;
+  }
+
+  section.vehicle-details ul li {
+    padding: 20px;
+  }
+
+  /* Error page */
+  main.error-main {
+    font-size: 50px;
   }
 }
