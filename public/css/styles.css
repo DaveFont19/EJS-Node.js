@@ -189,30 +189,30 @@ main.error-main {
 }
 
 /* Login Page */
-body.form-login main {
+section.form-login {
   display: flex;
   flex-direction: column;
   align-items: center
 }
 
-body.form-login main h1 {
-  align-self: flex-start;
+section.form-login h1 {
+  align-self: center;
 }
 
-body.form-login main div {
+section.form-login div {
   background-color: rgb(50, 71, 92);
   color: #ffffff;
   padding: 30px 40px;
   border-radius: 10px;
 }
 
-body.form-login main div form {
+section.form-login div form {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-body.form-login main div form input {
+section.form-login div form input {
   margin-bottom: 15px;
   border-radius: 5px;
 }
