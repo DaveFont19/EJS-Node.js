@@ -3,7 +3,6 @@
   margin: 0;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
-  ;
 }
 
 :root {
@@ -129,7 +128,7 @@ ul#inv-display li {
   border-radius: 10px;
 }
 
-ul#inv-display li>a {
+ul#inv-display li > a {
   width: 100%;
   height: 70%;
   border-bottom: solid 4px black;
@@ -147,14 +146,13 @@ ul#inv-display li div {
   flex-direction: column;
   align-items: center;
   text-align: center;
-
 }
 
 /* Vehicle dates page */
 section.vehicle-details {
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 
 section.vehicle-details img {
@@ -176,7 +174,9 @@ section.vehicle-details ul li:nth-child(even) {
 
 /* Error page */
 main.error-main {
-  background-image: linear-gradient(rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.4)), url("/images/site/error-page.jpg");
+  background-image:
+    linear-gradient(rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.4)),
+    url("/images/site/error-page.jpg");
   height: 80%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -192,7 +192,7 @@ main.error-main {
 section.form-login {
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 
 section.form-login h1 {
@@ -239,7 +239,7 @@ input:required:valid {
 
 .page-error {
   color: #c00;
-  margin: .5rem 0 1rem;
+  margin: 0.5rem 0 1rem;
   font-weight: 600;
 }
 
@@ -251,40 +251,74 @@ input:required:valid {
 }
 
 .hint {
-  margin: 0 0 .25rem;
+  margin: 0 0 0.25rem;
 }
 
 .subhint {
-  margin: .25rem 0 .5rem;
-  font-size: .9rem;
-  opacity: .9;
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
 input[type="text"] {
   display: block;
   width: 100%;
-  padding: .5rem;
-  margin: .25rem 0 .5rem;
+  padding: 0.5rem;
+  margin: 0.25rem 0 0.5rem;
 }
 
 .field-error {
   background: #fff;
   color: #c00;
-  padding: .35rem .5rem;
+  padding: 0.35rem 0.5rem;
   border-radius: 4px;
 }
 
 .btn {
-  padding: .5rem .9rem;
+  padding: 0.5rem 0.9rem;
   border: 0;
   border-radius: 6px;
   background: #fff;
 }
 
+/* Add inventory page */
+div.panel-inventory {
+  background: #19a7c1;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  color: black;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+div.panel-inventory label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+div.panel-inventory input {
+  padding: 0.5rem;
+  width: 95%;
+  height: 30%;
+}
+div.panel-inventory textarea {
+  padding: 0.5rem;
+  width: 97%;
+}
+div.panel-inventory select {
+  padding: 0.5rem;
+  width: 50%;
+  height: 35%;
+}
+div.panel-inventory button.btn {
+  width: 30%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 @media screen and (min-width: 710px) {
   body {
     background-image: url("/images/site/checkerboard.jpg");
-
   }
 
   header {

@@ -1,14 +1,27 @@
 <section class="form-login">
-            <h1>
-                <%= title %>
-            </h1>
-            <%# messages() %>
-            <div>
-                <form id="loginForm" action="/account/login" method="post">
-                    <label for="account_email">Email: </label><input type="email" name="account_email">
-                    <label for="account_password">Password: </label><input type="password" name="account_password">
-                    <button type="submit">Login</button>
-                </form>
-                <p>No account? <a href="/account/register">Sign up</a></p>
-            </div>
+  <h1><%= title %></h1>
+  <%# messages() %>
+  <div>
+    <form id="loginForm" action="/account/login" method="post">
+      <label for="account_email">Email: </label>
+      <input
+        required
+        type="email"
+        name="account_email"
+        placeholder="Enter a valid email address"
+        id="account_email"
+        value="<%= locals.account_email %>"
+      />
+      <label for="account_password">Password: </label>
+      <input
+        required
+        type="password"
+        name="account_password"
+        id="account_password"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+      />
+      <button type="submit">Login</button>
+    </form>
+    <p>No account? <a href="/account/register">Sign up</a></p>
+  </div>
 </section>
