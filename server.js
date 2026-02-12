@@ -17,6 +17,7 @@ const session = require("express-session");
 const pool = require("./database/");
 const accountRoute = require('./routes/accountRoute');
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 /* ***********************
  * Middleware
@@ -41,6 +42,9 @@ app.use(function(req, res, next){
   next()
 })
 
+app.use(cookieParser());
+app.use(utilities.checkJWTToken); // Check JWT token on all routes to see if user is logged in
+
 /* ***********************
  * View Engine and Templates
  *************************/
@@ -58,13 +62,13 @@ app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use("/inv", inventoryRoute);
 // Account Route
 app.use("/account", accountRoute);
+// Error Route
+const errorRoute = require("./routes/errorRoute");
+app.use("/error", errorRoute);
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({ status: 404, message: "Sorry, we appear to have lost that page." });
 });
-// Error Route
-const errorRoute = require("./routes/errorRoute");
-app.use("/error", errorRoute);
 
 /* ***********************
  * Local Server Information

@@ -1,0 +1,18 @@
+<% if (title) { %>
+    <title>
+    <%= title %>
+    </title>
+    <% } %>
+    <%- messages() %>
+<h1><%- title %></h1>
+<form action="/inv/delete" method="post" novalidate>
+    <p class="hint"><strong>Confirm Deletion - The delete is permanent.</strong></p>
+    <div class="panel-inventory">
+        <label>Make <input type="text" name="make" value="<%= data.inv_make %>" readonly></label>
+        <label>Model <input type="text" name="model" value="<%= data.inv_model %>" readonly></label>
+        <label>Price <input type="number" name="price" value="<%= data.inv_price %>" readonly></label>
+        <label>Year <input type="number" min="1800" max="2100" name="year" value="<%= data.inv_year %>" readonly></label>
+        <input type="hidden" name="inv_id" value="<%= data.inv_id %>" hidden>
+        <button type="submit" class="btn">Delete Vehicle</button>
+    </div>
+</form>

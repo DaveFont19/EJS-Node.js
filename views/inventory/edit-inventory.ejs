@@ -1,0 +1,13 @@
+<% if (title) { %>
+    <title>
+    <%= title %>
+    </title>
+    <% } %>
+    <%- messages() %>
+<h1><%- title %></h1>
+<form action="/inv/update" method="post" novalidate>
+    <div class="panel-inventory">
+    <%- form %>
+        <button type="submit" class="btn">Update Vehicle</button>
+    </div>
+</form>

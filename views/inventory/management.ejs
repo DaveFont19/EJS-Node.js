@@ -8,4 +8,11 @@
     <ul>
         <li><a href="/inv/add-classification">Add New Classification</a></li>
         <li><a href="/inv/add-inventory">Add New Vehicle</a></li>
+        <h2>Manage Inventory</h2>
+        <p>Select a classification to view its vehicles.</p>
+        <%- classificationSelect %>
+        <table id="inventoryDisplay"></table>
+        <noscript>Javascript must be enabled to use this page.</noscript>
     </ul>
+
+    <script src="../../js/inventory.js"></script>

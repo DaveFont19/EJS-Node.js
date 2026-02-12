@@ -109,4 +109,42 @@ reg.checkInventoryData = async (req, res, next) => {
   }
   next();
 };
+
+reg.checkUpdateData = async (req, res, next) => {
+  const {
+    inv_id,
+    make,
+    model,
+    description,
+    image_path,
+    image_thumb,
+    price,
+    year,
+    miles,
+    color,
+  } = req.body;
+  const errors = validationResult(req);
+  let select = await utilities.buildClassificationList();
+  let nav = await utilities.getNav();
+  if (!errors.isEmpty()) {
+    return res.render("inventory/edit-inventory", {
+      title: "Edit Vehicle",
+      nav,
+      errors: null,
+      inv_id,
+      make,
+      model,
+      description,
+      image_path,
+      image_thumb,
+      price,
+      year,
+      miles,
+      color,
+      select
+    });
+  }
+  next();
+};
+
 module.exports = reg;
