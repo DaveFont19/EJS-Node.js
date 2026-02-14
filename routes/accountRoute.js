@@ -32,5 +32,15 @@ router.get(
   utilities.checkLogin,
   utilities.handleErrors(accountController.buildManagement),
 );
+// Route to log out the user
+router.get("/logout", utilities.handleErrors(accountController.accountLogout));
 
+//Route to edit account information view
+router.get("/edit", utilities.checkLogin, utilities.handleErrors(accountController.buildEditAccount));
+
+//Route to process the edit account information
+router.post("/edit-information", utilities.checkLogin, regValidate.editRules(), regValidate.checkEditData, utilities.handleErrors(accountController.editAccount));
+
+//Route to process the edit password account information
+router.post("/edit-password", utilities.checkLogin, regValidate.passwordRules(), regValidate.checkPasswordData, utilities.handleErrors(accountController.editPassword));
 module.exports = router;

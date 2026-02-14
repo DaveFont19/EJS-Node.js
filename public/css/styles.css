@@ -316,6 +316,23 @@ div.panel-inventory button.btn {
   font-weight: 600;
   cursor: pointer;
 }
+.account-link {
+  padding: 5px;
+}
+/* Account Managment View */
+.account-management {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.account-management-links h2 {
+  margin-bottom: 20px;
+}
+.account-management-links a{
+  text-decoration: underline;
+}
+.account-management-links h3 {
+  padding-top: 10px;
+}
 @media screen and (min-width: 710px) {
   body {
     background-image: url("/images/site/checkerboard.jpg");

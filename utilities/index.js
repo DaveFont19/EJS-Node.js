@@ -217,5 +217,17 @@ Util.editInventoryForm = async function (classificationSelect, data) {
 `;
   return form;
 };
-
+// Middleware to check the type of account and restrict access to certain pages
+Util.checkAccountType = (req, res, next) => {
+  if (
+    res.locals.accountData &&
+    (res.locals.accountData.account_type === "Admin" ||
+      res.locals.accountData.account_type === "Employee")
+  ) {
+    next();
+  } else {
+    req.flash("notice", "You do not have permission to access this page.");
+    return res.redirect("/account/login");
+  }
+};
 module.exports = Util;

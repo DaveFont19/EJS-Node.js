@@ -16,20 +16,27 @@ router.get(
   utilities.handleErrors(invController.buildByInventoryId),
 );
 // Route to inventory management view
-router.get("/", utilities.handleErrors(invController.buildManagementView));
+router.get(
+  "/",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.buildManagementView),
+);
 //Route to add classification view
 router.get(
   "/add-classification",
+  utilities.checkAccountType,
   utilities.handleErrors(invController.buildAddClassificationView),
 );
 // Route to add inventory view
 router.get(
   "/add-inventory",
+  utilities.checkAccountType,
   utilities.handleErrors(invController.buildAddInventoryView),
 );
 //Process to add classification
 router.post(
   "/add-classification",
+  utilities.checkAccountType,
   regValidate.classificationRules(),
   regValidate.checkClassificationData,
   utilities.handleErrors(invController.addClassification),
@@ -37,6 +44,7 @@ router.post(
 //Process to add inventory
 router.post(
   "/add-inventory",
+  utilities.checkAccountType,
   regValidate.inventoryRules(),
   regValidate.checkInventoryData,
   utilities.handleErrors(invController.addInventory),
@@ -49,18 +57,27 @@ router.get(
 // Route to edit inventory view
 router.get(
   "/edit/:inv_id",
+  utilities.checkAccountType,
   utilities.handleErrors(invController.buildEditInventoryView),
 );
 // Process to update inventory
-router.post("/update",
+router.post(
+  "/update",
+  utilities.checkAccountType,
   regValidate.inventoryRules(),
   regValidate.checkUpdateData,
-  utilities.handleErrors(invController.updateInventory));
+  utilities.handleErrors(invController.updateInventory),
+);
 //Route to delete inventory view
 router.get(
   "/delete/:inv_id",
+  utilities.checkAccountType,
   utilities.handleErrors(invController.buildDeleteInventoryView),
 );
-  // Process to delete inventory
-router.post("/delete", utilities.handleErrors(invController.deleteInventory));
+// Process to delete inventory
+router.post(
+  "/delete",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.deleteInventory),
+);
 module.exports = router;
