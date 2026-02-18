@@ -1,0 +1,26 @@
+<% if (title) { %>
+    <title>
+    <%= title %>
+    </title>
+    <% } %>
+    <%- messages() %>
+<h1><%- title %></h1>
+<table class="ticket-table">
+    <thead>
+        <tr>
+            <th>Client First Name</th>
+            <th>Client Last Name</th>
+            <th>Subject</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td><%= ticket.account_firstname %></td>
+                <td><%= ticket.account_lastname %></td>
+                <td><%= ticket.subject %></td>
+                <td><%= ticket.description %></td>
+                <td><%= ticket.status %></td>
+            </tr>
+    </tbody>

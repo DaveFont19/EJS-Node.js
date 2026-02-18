@@ -230,4 +230,25 @@ Util.checkAccountType = (req, res, next) => {
     return res.redirect("/account/login");
   }
 };
+Util.checkClientAccountType = (req, res, next) => {
+  if (
+    res.locals.accountData &&
+    res.locals.accountData.account_type === "Client"
+  ) {
+    next();
+  } else {
+    req.flash("notice", "You do not have permission to access this page.");
+    return res.redirect("/account/login");
+  }
+};
+
+//Ticket form
+Util.formNewTicket = async function (user_id) {
+  let form = `
+            <input type="hidden" name="account_id" value="${user_id}" hidden>
+            <label>Subject <input type="text" name="subject" required></label>
+            <label>Description <textarea name="description" required></textarea></label>
+`;
+  return form;
+}
 module.exports = Util;

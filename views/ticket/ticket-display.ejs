@@ -1,0 +1,30 @@
+<% if (title) { %>
+    <title>
+    <%= title %>
+    </title>
+    <% } %>
+    <%- messages() %>
+<h1><%- title %></h1>
+<section>
+    <table class="ticket-table">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Subject</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tickets.forEach(ticket => { %>
+                <tr class="ticket-row <%= ticket.status %>"
+                    onclick="window.location='/ticket/<%= ticket.ticket_id %>'">
+                    <td><%= ticket.ticket_id %></td>
+                    <td><%= ticket.subject %></td>
+                    <td><%= ticket.description %></td>
+                    <td><%= ticket.status %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</section>

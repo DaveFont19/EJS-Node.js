@@ -1,0 +1,13 @@
+<% if (title) { %>
+    <title>
+    <%= title %>
+    </title>
+    <% } %>
+    <%- messages() %>
+<h1><%- title %></h1>
+<form action="/ticket/create" method="post" novalidate>
+    <div class="panel-ticket">
+    <%- form %>
+        <button type="submit" class="btn">Create Ticket</button>
+    </div>
+</form>

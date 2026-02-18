@@ -62,6 +62,8 @@ app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use("/inv", inventoryRoute);
 // Account Route
 app.use("/account", accountRoute);
+//Ticket Route
+app.use("/ticket", require("./routes/ticketRoute"));
 // Error Route
 const errorRoute = require("./routes/errorRoute");
 app.use("/error", errorRoute);

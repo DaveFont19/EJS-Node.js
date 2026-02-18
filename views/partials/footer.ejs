@@ -1,6 +1,12 @@
 <% const d = new Date()
 let year = d.getFullYear() %>
 <footer>
-    <p>&copy; 2025, CSE 340 App</p>
-    <a href="/error">Error Link</a>
+    <% if (locals.accountData?.account_type == "Client") { %>
+        <p>&copy; 2025, CSE 340 App</p>
+        <a href="/error">Error Link</a>
+        <a href="/ticket/help-center">Help Center</a>
+    <% } else { %>
+        <p>&copy; 2025, CSE 340 App</p>
+        <a href="/error">Error Link</a>
+    <% } %>
 </footer>

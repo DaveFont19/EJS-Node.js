@@ -333,6 +333,58 @@ div.panel-inventory button.btn {
 .account-management-links h3 {
   padding-top: 10px;
 }
+/* Help Center */
+div.panel-ticket {
+  background: #19a7c1;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  color: black;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+div.panel-ticket label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+div.panel-ticket input {
+  padding: 0.5rem;
+  width: 95%;
+  height: 30%;
+}
+div.panel-ticket textarea {
+  padding: 1rem;
+  width: 97%;
+}
+div.panel-ticket button.btn {
+  width: 30%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: rgb(253, 141, 141);
+  cursor: pointer;
+}
+div.panel-ticket button.btn:hover {
+  background-color: #fff;
+  color: #19a7c1;
+  border: solid 1px #19a7c1;
+}
+tr.ticket-row {
+  border-bottom: solid 1px black;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+tr.ticket-row td {
+  padding: 10px;
+  align-content: center;
+}
+.open{
+  background-color: rgb(0, 104, 5);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
 @media screen and (min-width: 710px) {
   body {
     background-image: url("/images/site/checkerboard.jpg");
