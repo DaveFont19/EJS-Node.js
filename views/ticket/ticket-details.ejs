@@ -21,7 +21,7 @@
                 <td><%= ticket.account_lastname %></td>
                 <td><%= ticket.subject %></td>
                 <td><%= ticket.description %></td>
-                <td><%= ticket.status %></td>
+                <td><%= ticket.status.replace("_", " ") %></td>
             </tr>
     </tbody>
 </table>
