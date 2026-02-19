@@ -42,8 +42,34 @@ async function getTicketById(ticketId) {
     return error.message;
   }
 };
+
+async function updateTicketStatus(ticketId, newStatus) {
+  try {
+    const sql = "UPDATE public.support_ticket SET status = $1 WHERE ticket_id = $2 RETURNING *";
+    const result = await pool.query(sql, [newStatus, ticketId]);
+    return result.rows[0];
+  } catch (error) {
+    return error.message;
+  }
+};
+
+// Get tickets by user id
+async function getTicketsByUserId(accountId) {
+  try {
+    const result = await pool.query(
+      "SELECT * FROM public.support_ticket WHERE account_id = $1",
+      [accountId],
+    );
+    return result.rows;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 module.exports = {
   createTicket,
   getTickets,
   getTicketById,
+  updateTicketStatus,
+  getTicketsByUserId,
 };

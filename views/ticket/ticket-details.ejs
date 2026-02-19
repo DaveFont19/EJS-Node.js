@@ -5,7 +5,7 @@
     <% } %>
     <%- messages() %>
 <h1><%- title %></h1>
-<table class="ticket-table">
+<table class="ticket-details">
     <thead>
         <tr>
             <th>Client First Name</th>
@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-            <tr>
+            <tr class="ticket-row <%= ticket.status %>">
                 <td><%= ticket.account_firstname %></td>
                 <td><%= ticket.account_lastname %></td>
                 <td><%= ticket.subject %></td>
@@ -24,3 +24,23 @@
                 <td><%= ticket.status %></td>
             </tr>
     </tbody>
+</table>
+<button class="in-progress-button"
+        data-ticket-id="<%= ticket.ticket_id %>"
+        data-status="in_progress">
+  In Progress
+</button>
+
+<button class="resolved-button"
+        data-ticket-id="<%= ticket.ticket_id %>"
+        data-status="resolved">
+  Resolve
+</button>
+
+<button class="closed-button"
+        data-ticket-id="<%= ticket.ticket_id %>"
+        data-status="closed">
+  Close
+</button>
+
+    <script src="../../js/ticket-status.js"></script>

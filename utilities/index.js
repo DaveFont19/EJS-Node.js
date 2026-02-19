@@ -226,7 +226,7 @@ Util.checkAccountType = (req, res, next) => {
   ) {
     next();
   } else {
-    req.flash("notice", "You do not have permission to access this page.");
+    req.flash("notice", "Hello!");
     return res.redirect("/account/login");
   }
 };
@@ -237,7 +237,7 @@ Util.checkClientAccountType = (req, res, next) => {
   ) {
     next();
   } else {
-    req.flash("notice", "You do not have permission to access this page.");
+    req.flash("notice", "You need to be a client");
     return res.redirect("/account/login");
   }
 };
@@ -250,5 +250,5 @@ Util.formNewTicket = async function (user_id) {
             <label>Description <textarea name="description" required></textarea></label>
 `;
   return form;
-}
+};
 module.exports = Util;

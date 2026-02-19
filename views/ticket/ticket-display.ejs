@@ -22,7 +22,7 @@
                     <td><%= ticket.ticket_id %></td>
                     <td><%= ticket.subject %></td>
                     <td><%= ticket.description %></td>
-                    <td><%= ticket.status %></td>
+                    <td><%= ticket.status.replace("_", " ") %></td>
                 </tr>
             <% }) %>
         </tbody>

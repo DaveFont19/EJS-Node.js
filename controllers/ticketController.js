@@ -49,12 +49,38 @@ async function buildTicketInventory(req, res, next) {
 // Deliver ticket details view
 async function buildTicketDetails(req, res, next) {
   let nav = await utilities.getNav();
-  const ticketId = req.params.ticketId;
+  const ticketId = req.params.ticket_id;
   const ticket = await ticketModel.getTicketById(ticketId);
+  console.log(req.params.ticket_id);
   res.render("ticket/ticket-details", {
     title: "Ticket Details",
     nav,
     ticket,
+  });
+}
+
+// Update ticket status
+async function updateTicketStatus(req, res, next) {
+  const ticketId = req.params.ticket_id;
+  const newStatus = req.params.status;
+  const result = await ticketModel.updateTicketStatus(ticketId, newStatus);
+  if (result) {
+    req.flash("notice", "Ticket status updated successfully.");
+  } else {
+    req.flash("notice", "Failed to update ticket status.");
+  }
+  res.redirect("/ticket/ticket-inventory");
+};
+
+// Deliver my tickets view
+async function buildMyTickets(req, res, next) {
+  let nav = await utilities.getNav();
+  const userId = res.locals.accountData.account_id;
+  const tickets = await ticketModel.getTicketsByUserId(userId);
+  res.render("ticket/my-tickets", {
+    title: "My Tickets",
+    nav,
+    tickets,
   });
 }
 
@@ -63,4 +89,6 @@ module.exports = {
   createTicket,
   buildTicketInventory,
   buildTicketDetails,
+  updateTicketStatus,
+  buildMyTickets,
 };

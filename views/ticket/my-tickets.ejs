@@ -1,0 +1,25 @@
+<% if (title) { %>
+    <title>
+    <%= title %>
+    </title>
+    <% } %>
+    <%- messages() %>
+<h1><%- title %></h1>
+<table class="ticket-details">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+        <tbody>
+            <% tickets.forEach(ticket => { %>
+                <tr class="my-ticket-row <%= ticket.status %>">
+                    <td><%= ticket.subject %></td>
+                    <td><%= ticket.description %></td>
+                    <td><%= ticket.status.replace("_", " ") %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
